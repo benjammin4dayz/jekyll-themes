@@ -1,0 +1,40 @@
+/* Theme Settings */
+.page {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: var(--vh);
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+/* Alternating Backgrounds */
+.page:nth-child(even) {
+  background-color: var(--primary-color);
+}
+.page:nth-child(odd) {
+  background-color: var(--secondary-color);
+}
+
+/* Firefox Scroll */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) var(--secondary-color);
+}
+
+/* Webkit Scroll */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--secondary-color);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+}
+::-webkit-scrollbar-thumb:hover::after {
+  background-color: #3333331c;
+}
+/* --- */

@@ -1,0 +1,26 @@
+# Site settings
+title: Site Title
+description: We don't know much about this website, but we're sure it's great! # Short description of the site which will appear in search engines
+baseurl: '' # The subpath of your site, e.g. /blog
+url: 'https://example.com' # The base hostname & protocol for your site
+
+# Build settings
+client:
+  name: Jam Min
+  profession: Web Developer
+  portrait_url: https://avatars.githubusercontent.com/u/42326027?v=4 # Leave blank to use local portrait in assets/
+
+social:
+  - platform: GitHub
+    handle: benjammin4dayz
+
+theme: flow
+colors:
+  preset: 0 # 1 = Elegant Lavender | 2 = Candy Crush | 3 = Cotton Candy | 4 = Coral Reef
+  use_custom: false # Toggle colors defined below this
+  primary:
+  secondary:
+  tertiary:
+  accent:
+  accent_alt:
+  text:

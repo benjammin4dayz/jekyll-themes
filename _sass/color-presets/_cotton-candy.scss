@@ -1,0 +1,15 @@
+:root {
+  --primary-color: #ff4081;
+  --secondary-color: #536dfe;
+  --tertiary-color: #18ffff;
+  --accent-color: #ffd740;
+  --accent-color-alt: #90caf9;
+  --text-color: #616161;
+  --gradient: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color-alt) 55%,
+    var(--secondary-color) 77%,
+    var(--primary-color) 100%
+  );
+}

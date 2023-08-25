@@ -1,0 +1,46 @@
+---
+---
+
+/* FontAwesome Library */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+/* Lato Font */
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+{% if site.colors.use_custom %}
+  :root {
+    --primary-color: {{ site.colors.primary  }};
+    --secondary-color: {{ site.colors.secondary  }};
+    --tertiary-color: {{ site.colors.tertiary  }};
+    --accent-color: {{ site.colors.accent  }};
+    --accent-color-alt: {{ site.colors.accent_alt  }};
+    --text-color: {{ site.colors.text }};
+    --gradient: linear-gradient(
+      135deg,
+      var(--primary-color),
+      var(--accent-color-alt) 55%,
+      var(--secondary-color) 77%,
+      var(--primary-color) 100%
+    );
+  }
+  {% elsif site.colors.preset == 1 %}
+    @import 'color-presets/elegant-lavender';
+  {% elsif site.colors.preset == 2 %}
+    @import 'color-presets/candy-crush';
+  {% elsif site.colors.preset == 3 %}
+    @import 'color-presets/cotton-candy';
+  {% elsif site.colors.preset == 4 %}
+    @import 'color-presets/coral-reef';
+  {% else %}
+    @import 'root';
+{% endif %}
+
+@import 'anims', 'layout', 'theme';
+@import 'sidebar', 'landing';
+@import 'mobile';
+
+.text-center {
+  text-align: center;
+}
+.top-margin {
+  margin-top: 5rem;
+}

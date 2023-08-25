@@ -1,0 +1,27 @@
+/* Default Color Vars */
+:root {
+  --primary-color: #443fb2;
+  --secondary-color: #6255ff;
+  --tertiary-color: #4b10b2;
+  --accent-color: #ffa500;
+  --accent-color-alt: orangered;
+  --text-color: #f3f3f3;
+  --dark-color-zero: #111;
+  --dark-color-one: #333;
+  --dark-color-two: #555;
+  --gradient: linear-gradient(
+    135deg,
+    var(--primary-color),
+    #9e9ed8 55%,
+    var(--secondary-color) 77%,
+    var(--primary-color) 100%
+  );
+  --gradient-alt: linear-gradient(
+    135deg,
+    #e6e6ff,
+    #443fb2 30%,
+    #6255ff 77%,
+    #e6e6ff 100%
+  );
+}
+/* --- */

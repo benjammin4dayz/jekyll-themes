@@ -1,0 +1,34 @@
+@keyframes pulse-border {
+  0% {
+    border-color: var(--primary-color);
+  }
+  25% {
+    border-color: var(--secondary-color);
+  }
+  50% {
+    border-color: var(--tertiary-color);
+  }
+  75% {
+    border-color: var(--secondary-color);
+  }
+  100% {
+    border-color: var(--primary-color);
+  }
+}
+@keyframes pulse-color {
+  0% {
+    color: var(--primary-color);
+  }
+  25% {
+    color: var(--secondary-color);
+  }
+  50% {
+    color: var(--tertiary-color);
+  }
+  75% {
+    color: var(--secondary-color);
+  }
+  100% {
+    color: var(--primary-color);
+  }
+}

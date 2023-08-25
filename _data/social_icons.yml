@@ -1,0 +1,40 @@
+# Map brand names to FontAwesome icons
+
+- platform: Facebook
+  icon: fab fa-facebook
+- platform: Flickr
+  icon: fab fa-flickr
+- platform: GitHub
+  icon: fab fa-github
+- platform: Instagram
+  icon: fab fa-instagram
+- platform: LinkedIn
+  icon: fab fa-linkedin
+- platform: Line
+  icon: fab fa-line
+- platform: Medium
+  icon: fab fa-medium
+- platform: Pinterest
+  icon: fab fa-pinterest
+- platform: Reddit
+  icon: fab fa-reddit
+- platform: Snapchat
+  icon: fab fa-snapchat
+- platform: SoundCloud
+  icon: fab fa-soundcloud
+- platform: Spotify
+  icon: fab fa-spotify
+- platform: TikTok
+  icon: fab fa-tiktok
+- platform: Tumblr
+  icon: fab fa-tumblr
+- platform: Twitch
+  icon: fab fa-twitch
+- platform: Twitter
+  icon: fab fa-twitter
+- platform: WeChat
+  icon: fab fa-weixin
+- platform: WhatsApp
+  icon: fab fa-whatsapp
+- platform: YouTube
+  icon: fab fa-youtube

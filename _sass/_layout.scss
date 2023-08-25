@@ -1,0 +1,21 @@
+/* Layout Settings */
+/* Smoooth snap scrolling */
+html {
+  --vh: 100vh;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+/* Flex <aside> and <main> elements horizontally in the window */
+body {
+  display: flex;
+  margin: 0;
+  background-color: var(--accent-color);
+  font-family: 'Lato', sans-serif;
+}
+/* Flex <main> children elements vertically in the window */
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+/* --- */
