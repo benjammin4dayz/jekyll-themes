@@ -7,7 +7,7 @@
 Add this line to your Jekyll site's `Gemfile`:
 
 ```ruby
-gem "flow"
+gem "flow", "~> 0.1.0", git: 'https://github.com/benjammin4dayz/jekyll-themes.git', branch: 'flow-src'
 ```
 
 And add this line to your Jekyll site's `_config.yml`:
