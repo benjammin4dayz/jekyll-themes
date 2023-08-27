@@ -53,7 +53,16 @@ social:
 
 ### Add New Articles
 
-Place files in `_collections/_articles`
+Create `n-article.html` in the project root, where `n` is the order in which it should appear.
+
+```yaml
+# 0-hello.html
+---
+hash: hello-world
+---
+# ...
+# HTML goes here.
+```
 
 ## Contributing
 

@@ -15,11 +15,6 @@ social:
   - platform:
     handle:
 
-collections_dir: ./_collections
-collections:
-  articles:
-    output: true
-
 sass:
   style: compressed
   # load_paths:

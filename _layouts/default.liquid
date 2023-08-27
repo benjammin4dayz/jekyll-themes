@@ -3,7 +3,7 @@
   <!-- Designed and developed by @benjammin4dayz on Discord & GitHub -->
   <!-- Check out my personal site: https://benjammin4dayz.github.io -->
   <head>
-    {% include _head.html %}
+    {% include _theme-head.html %}
     {% include head.html %}
   </head>
   <body>
@@ -64,11 +64,11 @@
         </figure>
 
         <!-- Social Links -->
-        <section class='links'>{% include _socials.liquid %}</section>
+        <section class='links'>{% include _gen-socials.liquid %}</section>
       </article>
 
       <!-- Additional Articles -->
-      {% include _articles.liquid %}
+      {% include _gen-articles.liquid %}
     </main>
     <script>
       Site.init();
