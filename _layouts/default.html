@@ -2,7 +2,9 @@
 <html lang="en">
   <!-- Designed and developed by @benjammin4dayz on Discord & GitHub -->
   <!-- Check out my personal site: https://benjammin4dayz.github.io -->
-  {% include head.html %}
+  <head>
+    {% include _head.html %} {% include head.html %}
+  </head>
   <body>
     {% comment %}
     <!-- Sidebar w/ Navigation Buttons -->
@@ -57,20 +59,7 @@
         </figure>
 
         <!-- Social Links -->
-        <section class="links">
-          {% for social in site.social %} {% if social.handle %}
-          <a
-            href="https://{{ social.platform | downcase }}.com/{{ social.handle }}"
-            target="_blank"
-          >
-            {% for item in site.data.social_icons %} {% assign requested =
-            item.platform | downcase %} {% assign supported = social.platform |
-            downcase %} {% if requested == supported %}
-            <i class="{{ item.icon }} fa-2x"></i>
-            {% endif %} {% endfor %}
-          </a>
-          {% endif %} {% endfor %}
-        </section>
+        <section class="links">{% include _social-icons.html %}</section>
       </article>
 
       <!-- Additional Articles -->

@@ -1,0 +1,12 @@
+{% for social in site.social %} {% if social.handle %}
+<a
+  href="https://{{ social.platform | downcase }}.com/{{ social.handle }}"
+  target="_blank"
+>
+  {% for item in site.data.social_icons %} {% assign requested = item.platform |
+  downcase %} {% assign supported = social.platform | downcase %} {% if
+  requested == supported %}
+  <i class="{{ item.icon }} fa-2x"></i>
+  {% endif %} {% endfor %}
+</a>
+{% endif %} {% endfor %}
