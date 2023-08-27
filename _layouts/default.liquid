@@ -68,11 +68,7 @@
       </article>
 
       <!-- Additional Articles -->
-      {% for article in site.articles %}
-        <article id='{{ article.hash }}' class='page'>
-          {{ article.content }}
-        </article>
-      {% endfor %}
+      {% include _articles.liquid %}
     </main>
     <script>
       Site.init();

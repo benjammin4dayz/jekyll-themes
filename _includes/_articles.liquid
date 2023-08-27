@@ -1,0 +1,5 @@
+{% for article in site.articles %}
+  <article id='{{ article.hash }}' class='page'>
+    {{ article.content }}
+  </article>
+{% endfor %}
