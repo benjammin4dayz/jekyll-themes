@@ -33,7 +33,7 @@ Download my theme gem via GitHub:
 
 Get the project scaffold:
 
-    $ gem flow
+    $ flow
 
 ## Usage
 
