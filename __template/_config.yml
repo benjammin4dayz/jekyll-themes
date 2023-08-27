@@ -6,6 +6,7 @@ url: 'https://example.com' # The base hostname & protocol for your site
 
 # Build settings
 client:
+  intro: # Hello, I'm { name }
   name: Jam Min
   profession: Web Developer
   portrait_url: https://avatars.githubusercontent.com/u/42326027?v=4 # Leave blank to use local portrait in assets/
