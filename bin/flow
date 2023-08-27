@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require "flow"
+puts Flow::hello
+puts Flow::copy_template

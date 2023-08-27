@@ -4,25 +4,27 @@
 
 ## Installation
 
-Add this line to your Jekyll site's `Gemfile`:
+Create a `Gemfile` and add the following line:
 
 ```ruby
 gem "flow", "~> 0.1.0", git: 'https://github.com/benjammin4dayz/jekyll-themes.git', branch: 'flow-src'
 ```
 
-And add this line to your Jekyll site's `_config.yml`:
+Install the gem using Bundler:
 
-```yaml
-theme: flow
-```
+    $ bundle install
 
-And then execute:
+Get the project scaffold:
 
-    $ bundle
+    $ bundle exec flow
 
-Or install it yourself as:
+Or build it and install it yourself as:
 
     $ gem install flow
+
+Then call it globally on the CLI to build the project scaffold:
+
+    $ gem flow
 
 ## Usage
 
