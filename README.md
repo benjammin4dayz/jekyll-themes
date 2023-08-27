@@ -4,10 +4,13 @@
 
 ## Installation
 
+#### Bundler:
+
 Create a `Gemfile` and add the following line:
 
 ```ruby
-gem "flow", "~> 0.1.0", git: 'https://github.com/benjammin4dayz/jekyll-themes.git', branch: 'flow-src'
+# Gemfile
+gem "flow", git: 'https://github.com/benjammin4dayz/jekyll-themes.git', branch: 'flow-src'
 ```
 
 Install the gem using Bundler:
@@ -18,11 +21,17 @@ Get the project scaffold:
 
     $ bundle exec flow
 
-Or build it and install it yourself as:
+#### Global:
 
-    $ gem install flow
+Download and install the [specific_install](https://rubygems.org/gems/specific_install/versions/0.3.8) gem:
 
-Then call it globally on the CLI to build the project scaffold:
+    $ gem install specific_install
+
+Download my theme gem via GitHub:
+
+    $ gem specific_install -l 'https://github.com/benjammin4dayz/jekyll-themes.git' -b 'flow-src'
+
+Get the project scaffold:
 
     $ gem flow
 
