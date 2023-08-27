@@ -2,13 +2,13 @@
 title: Flow | A Jekyll Theme
 description: We don't know much about this website, but we're sure it's great! # Short description of the site which will appear in search engines
 baseurl: '' # The subpath of your site, e.g. /blog
-url: 'https://example.com' # The base hostname & protocol for your site
+url: '' # The base hostname & protocol for your site
 
 # Build settings
 client:
-  intro: Beep Boop, I'm
-  name: Human
-  profession: Definitely not a robot
+  intro: Hello, I'm
+  name: Jam Min
+  profession: Web Developer
   portrait_url:
 
 social:

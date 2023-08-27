@@ -1,14 +1,14 @@
 # Site settings
-title: Site Title
-description: We don't know much about this website, but we're sure it's great! # Short description of the site which will appear in search engines
+title: # The title of your site
+description: # Short description of your site that will appear in search engines
 baseurl: '' # The subpath of your site, e.g. /blog
 url: 'https://example.com' # The base hostname & protocol for your site
 
 # Build settings
 client:
-  intro: # Hello, I'm { name }
-  name: Jam Min
-  profession: Web Developer
+  intro: # Hello, I'm { name }!
+  name: # John Doe | Jane D.
+  profession: # Doer of things
   portrait_url: https://avatars.githubusercontent.com/u/42326027?v=4 # Leave blank to use local portrait in assets/
 
 social:
