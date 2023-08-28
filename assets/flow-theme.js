@@ -5,7 +5,8 @@ class Site {
   static init() {
     // Site.info('site-info');
     Site.trueViewHeight();
-    Site.trackPageHash();
+    Site.trackPageHash('.landing-nav a', 'active');
+    Site.stickyHeader('landing-nav');
   }
 
   static info(buttonId) {
@@ -17,7 +18,7 @@ class Site {
     new Site._util.TrueViewHeight();
   }
 
-  static trackPageHash() {
+  static trackPageHash(navButtonQuery, elementActiveClass) {
     // Update page hash to reflect the active article as the user scrolls
     // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
     const observer = new IntersectionObserver(
@@ -32,13 +33,11 @@ class Site {
               window.history.replaceState(null, null, `#${id}`);
 
               // Highlight the navigational buttons for the current article
-              const navButtons = document.querySelectorAll(
-                'nav.stickybar > button'
-              );
-              navButtons.forEach((button) => {
-                button.classList.remove('active');
-                if (button.getAttribute('data-target') === id)
-                  button.classList.add('active');
+              const navButtons = document.querySelectorAll(navButtonQuery);
+              navButtons.forEach((el) => {
+                el.classList.remove(elementActiveClass);
+                if (el.getAttribute('data-target') === id)
+                  el.classList.add(elementActiveClass);
               });
             }
           }
@@ -52,6 +51,10 @@ class Site {
     pages.forEach((page) => {
       observer.observe(page);
     });
+  }
+
+  static stickyHeader(elementId) {
+    return new Site._util.StickyHeader(elementId);
   }
 
   /**
@@ -188,9 +191,66 @@ class Site {
       }
     }
 
+    class StickyHeader {
+      constructor(elementId) {
+        this.header = elementId;
+        this.init();
+      }
+
+      init() {
+        this.origin = this._calculateInitialPosition();
+        this._onScroll(this._toggleSticky);
+      }
+
+      _calculateInitialPosition(el = this.header) {
+        const rect = el.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        const left = rect.left + window.scrollX;
+        return { top, left };
+      }
+
+      _toggleSticky(pos = window.scrollY) {
+        const [top, origin] = [this.offsetTop, this.origin.top];
+        pos > top ? this._addClass('sticky') : this._removeClass('sticky');
+        if (pos <= origin) this._removeClass('sticky');
+      }
+      _onScroll(callback) {
+        window.addEventListener('scroll', () => callback.call(this));
+      }
+      _addClass(className) {
+        this.header.classList.add(className);
+      }
+      _removeClass(className) {
+        this.header.classList.remove(className);
+      }
+
+      set header(id) {
+        if (id instanceof Element) return (this._header = id);
+        const element = document.getElementById(id);
+        element
+          ? (this._header = element)
+          : console.error(`[StickyHeader]: Missing element by ID ${id}`);
+      }
+
+      get header() {
+        return this._header;
+      }
+
+      get offsetTop() {
+        return this.header.offsetTop;
+      }
+      set origin(pos) {
+        this._origin = pos;
+      }
+      get origin() {
+        return this._origin;
+      }
+    }
+
     return {
       Info,
-      TrueViewHeight
+      TrueViewHeight,
+      StickyHeader
     };
   }
 }

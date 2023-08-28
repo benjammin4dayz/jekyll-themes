@@ -1,0 +1,20 @@
+{% for page in site.pages %}
+  {% if page.hash %}
+    {% assign generate = true %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% if generate == true %}
+  <nav id='landing-nav' class='landing-nav'>
+    <div class='container background'>
+      {% for page in site.pages %}
+        {% if page.hash %}
+          <a data-target='{{ page.hash }}' href='#{{ page.hash }}'>
+            {{- page.title | default: page.hash -}}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </nav>
+{% endif %}
