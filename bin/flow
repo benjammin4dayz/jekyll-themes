@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require "flow"
-puts Flow::hello
-puts Flow::copy_template
+require "flow_cli"
+puts Flow.hello
+puts Flow::CLI.init

@@ -4,26 +4,9 @@
 
 ## Installation
 
-#### Bundler:
+#### Gem-based
 
-Create a `Gemfile` and add the following line:
-
-```ruby
-# Gemfile
-gem "flow", git: 'https://github.com/benjammin4dayz/jekyll-themes.git', branch: 'flow-src'
-```
-
-Install the gem using Bundler:
-
-    $ bundle install
-
-Get the project scaffold:
-
-    $ bundle exec flow
-
-#### Global:
-
-Download and install the [specific_install](https://rubygems.org/gems/specific_install/versions/0.3.8) gem:
+Download and install the [specific_install](https://rubygems.org/gems/specific_install) gem:
 
     $ gem install specific_install
 
@@ -33,7 +16,22 @@ Download my theme gem via GitHub:
 
 Get the project scaffold:
 
-    $ flow
+    $ flow init
+
+#### Manual
+
+Clone my repo and switch to the proper branch
+
+    $ git clone https://github.com/benjammin4dayz/jekyll-themes.git
+    $ git checkout flow-src
+
+Get the distributable files by invoking `dist.rb` on the CLI
+
+    $ .\dist
+
+Or use Bundler directly
+
+    $ bundle exec flow init
 
 ## Usage
 
