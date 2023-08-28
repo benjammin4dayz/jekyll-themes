@@ -7,7 +7,7 @@
 
 {% if generate == true %}
   <nav id='landing-nav' class='landing-nav'>
-    <div class='container background'>
+    <div class='container background border'>
       {% for page in site.pages %}
         {% if page.hash %}
           <a data-target='{{ page.hash }}' href='#{{ page.hash }}'>
