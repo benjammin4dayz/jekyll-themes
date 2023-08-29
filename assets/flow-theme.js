@@ -4,7 +4,7 @@
 class Site {
   static init() {
     // Site.info('site-info');
-    Site.trueViewHeight();
+    // Site.trueViewHeight(); //TODO: Look into excessive redraws on mobile, evaluate if this is needed
     Site.trackPageHash('.landing-nav a', 'active');
     Site.stickyHeader('landing-nav');
   }
@@ -212,7 +212,8 @@ class Site {
       _toggleSticky(pos = window.scrollY) {
         const [top, origin] = [this.offsetTop, this.origin.top];
         pos > top ? this._addClass('sticky') : this._removeClass('sticky');
-        if (pos <= origin) this._removeClass('sticky');
+        if (!this._isMobileDevice)
+          if (pos <= origin) this._removeClass('sticky');
       }
       _onScroll(callback) {
         window.addEventListener('scroll', () => callback.call(this));
@@ -244,6 +245,12 @@ class Site {
       }
       get origin() {
         return this._origin;
+      }
+
+      get _isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
       }
     }
 
