@@ -34,7 +34,7 @@
     @import 'root';
 {% endif %}
 
-@import 'variables';
+@import 'base';
 @import 'anims', 'layout', 'theme';
 @import 'sidebar', 'landing', 'landing-nav';
 @import 'mobile';
