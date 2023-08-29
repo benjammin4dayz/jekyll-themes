@@ -4,33 +4,27 @@
 
 ## Installation
 
-#### Gem-based
+#### Automatic
 
-Download and install the [specific_install](https://rubygems.org/gems/specific_install) gem:
+Use [specific_install](https://rubygems.org/gems/specific_install) to clone and install this branch as a gem
 
     $ gem install specific_install
-
-Download my theme gem via GitHub:
-
     $ gem specific_install -l 'https://github.com/benjammin4dayz/jekyll-themes.git' -b 'flow-src'
 
 Get the project scaffold:
 
     $ flow init
 
-#### Manual
+#### Build it Yourself
 
 Clone my repo and switch to the proper branch
 
     $ git clone https://github.com/benjammin4dayz/jekyll-themes.git
     $ git checkout flow-src
 
-Get the distributable files by invoking `dist.rb` on the CLI
+Get the distributable files by invoking `dist.rb` on the CLI, or call Bundler directly
 
     $ .\dist
-
-Or use Bundler directly
-
     $ bundle exec flow init
 
 ## Usage
@@ -73,16 +67,28 @@ hash: hello-world
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/benjammin4dayz/jekyll-themes. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
+Please share any bugs that you encounter on [GitHub](https://github.com/benjammin4dayz/jekyll-themes) or contact me on Discord @`benjammin4dayz`
+
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
 ## Development
 
-To set up your environment to develop this theme, run `bundle install`.
+Clone the repo
 
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+    $ git clone https://github.com/benjammin4dayz/jekyll-themes.git
+    $ git checkout flow-src
 
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
-To add a custom directory to your theme-gem, please edit the regexp in `flow.gemspec` accordingly.
+Get the distributables and navigate to the output directory
+
+    $ .\dist
+    $ cd ../jekyll-flow
+
+Call `bundler exec jekyll serve` using the `serve.rb` alias
+
+    $ .\serve
+
+When the theme is built, only the files specified in ` spec.files` will be bundled.
+To add a custom directory to the theme-gem, please edit the regexp in `flow.gemspec` accordingly.
 
 ## License
 
