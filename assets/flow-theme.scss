@@ -30,6 +30,8 @@
     @import 'color-presets/cotton-candy';
   {% elsif site.colors.preset == 4 %}
     @import 'color-presets/coral-reef';
+  {% elsif site.colors.preset == 'dark' %}
+    @import 'color-presets/dark-mode';
   {% else %}
     @import 'root';
 {% endif %}
