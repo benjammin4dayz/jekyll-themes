@@ -17,8 +17,13 @@ social:
 
 theme: flow
 colors:
-  preset: 0 # 1 = Elegant Lavender | 2 = Candy Crush | 3 = Cotton Candy | 4 = Coral Reef
-  use_custom: false # Toggle colors defined below this
+  preset:
+    'dark'
+    # 1 = Elegant Lavender
+    # 2 = Candy Crush
+    # 3 = Cotton Candy
+    # 4 = Coral Reef
+  use_custom: # Toggle colors defined below this
   primary:
   secondary:
   tertiary:
