@@ -1,5 +1,20 @@
 export default class Info {
   constructor() {
+    this.init();
+  }
+
+  init() {
+    this.assignHotkey('.', this._openOverlay.bind(this));
+  }
+
+  assignHotkey(key, callback) {
+    document.addEventListener(
+      'keydown',
+      (event) => event.key === key && callback()
+    );
+  }
+
+  _openOverlay() {
     this.overlay = this._createOverlay();
     document.body.appendChild(this.overlay);
     this._injectHTML(this.overlay);
