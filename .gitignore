@@ -4,3 +4,9 @@
 .sass-cache
 _site
 Gemfile.lock
+package-lock*
+node_modules
+*.map
+
+# should exclude bundled javascript in lieu of _src
+# flow-theme.js
