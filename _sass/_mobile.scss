@@ -1,11 +1,20 @@
 /* me: (╯°□°）╯ mobile: ︵ ┻━┻ */
 @media screen and (max-width: 480px) {
   .links {
-    gap: 10px;
-    transform: scale(0.7);
-    margin-bottom: 3rem;
-    padding: 25px;
+    gap: 5px;
+    transform: scale(0.6);
+    margin-bottom: 1.5rem;
+    padding: 15px;
     background-color: var(--dark-color-zero);
     border-radius: 25px;
+  }
+  h1 {
+    font-size: 32px !important;
+  }
+  h4 {
+    font-size: 16px !important;
+  }
+  .landing-nav {
+    width: 100%;
   }
 }

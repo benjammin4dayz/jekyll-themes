@@ -49,11 +49,12 @@
         <header class='hero text-center'>
           {% assign alias = site.client.name | split: ' ' | first %}
           {% assign intro = site.client.intro %}
+          {% assign profession = site.client.profession %}
           <h1>
             {{ intro }}
             {{ alias }}!
           </h1>
-          <h4>{{ site.client.profession }}</h4>
+          <h4>{{ profession }}</h4>
         </header>
         <!-- Portrait Photo -->
         <figure>
