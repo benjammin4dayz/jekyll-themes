@@ -16,7 +16,7 @@ export default {
     file: OUT.path + OUT.name,
     format: 'iife',
     name: 'FlowTheme',
-    sourcemap: true
+    sourcemap: false
   },
   plugins: [terser()]
 };
