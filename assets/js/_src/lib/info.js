@@ -4,7 +4,7 @@ export default class Info {
   }
 
   init() {
-    this.assignHotkey('.', this._openOverlay.bind(this));
+    this.assignHotkey('`', this._openOverlay.bind(this));
   }
 
   assignHotkey(key, callback) {
