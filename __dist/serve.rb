@@ -37,6 +37,8 @@ module ServeScript
   def self.run
     options = parse_options
 
+    print "\e[H\e[2J" # ANSI escape to clear terminal
+
     OptionParser.new do |opts|
       opts.on("-h", "--help", "Prints help") do
         puts opts
