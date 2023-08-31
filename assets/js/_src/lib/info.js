@@ -5,76 +5,70 @@ export default class Info {
   }
 
   init() {
-    this.assignHotkey('`', this.spawnOverlay.bind(this));
-  }
-
-  assignHotkey(key, callback) {
-    document.addEventListener(
-      'keydown',
-      (event) => event.key === key && callback()
-    );
+    this._makeOverlay();
+    this._styleOverlay();
+    this._openOnKeypress('`');
   }
 
   spawnOverlay() {
-    this._fetchHTML()
-      .then(() => {
-        this.overlay = this._makeOverlay();
-        document.body.appendChild(this.overlay);
-        this._injectHTML(this.overlay);
+    fetch(this.source)
+      .then((response) => response.json())
+      .then((data) => {
+        this.html = data.files['overlay.html'].content;
       })
-      .catch((e) => console.error(e));
+      .then(() => {
+        this.overlay.innerHTML = this.html;
+        document.body.appendChild(this.overlay);
+      })
+      .catch((e) => console.error(`[Info-Overlay]: ${e}`));
   }
 
   _makeOverlay() {
     const overlay = document.createElement('div');
     overlay.id = 'bnj0--overlay-main';
-    const { style } = overlay;
-    style.position = 'fixed';
-    style.top = '0';
-    style.left = '0';
-    style.right = '0';
-    style.bottom = '0';
-    style.zIndex = '9999';
+    this.overlay = overlay;
+  }
+  _styleOverlay() {
+    const { style } = this.overlay;
     style.display = 'flex';
     style.justifyContent = 'center';
     style.alignItems = 'center';
+    style.position = 'fixed';
+    style.zIndex = '9999';
+    style.top = '0';
+    style.bottom = '0';
+    style.left = '0';
+    style.right = '0';
     style.minWidth = '100vw';
     style.minHeight = '100vh';
-    return overlay;
   }
 
-  _injectHTML(target) {
-    target.innerHTML = this.html;
+  _openOnKeypress(key) {
+    document.addEventListener(
+      'keydown',
+      (event) => event.key === key && this.spawnOverlay().bind(this)
+    );
   }
 
-  _minify(source) {
-    // regex is black magic - ty regex101 for the tasty copy pasta
-    return source.replace(/<!--(.*?)-->|\s\B/gm, '');
+  set source(id) {
+    this._source = `https://api.github.com/gists/${id}`;
   }
-
-  _fetchHTML() {
-    return new Promise((resolve, reject) => {
-      fetch(this.source)
-        .then((response) => response.json())
-        .then((data) => {
-          this.html = data.files['overlay.html'].content;
-          resolve();
-        })
-        .catch((e) => reject(e));
-    });
+  get source() {
+    return this._source;
   }
 
   set html(html) {
-    this._html = `\`${this._minify(html)}\``;
+    const minify = (src) => src.replace(/<!--(.*?)-->|\s\B/gm, '');
+    this._html = `\`${minify(html)}\``;
   }
   get html() {
     return this._html;
   }
 
-  set source(s) {
-    this._source = `https://api.github.com/gists/${s}`;
+  set overlay(el) {
+    this._overlay = el;
   }
-  get source() {
-    return this._source;
+  get overlay() {
+    return this._overlay;
   }
 }
