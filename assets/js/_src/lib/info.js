@@ -5,7 +5,7 @@ export default class Info {
   }
 
   init() {
-    this.assignHotkey('`', this.makeOverlay.bind(this));
+    this.assignHotkey('`', this.spawnOverlay.bind(this));
   }
 
   assignHotkey(key, callback) {
@@ -15,18 +15,19 @@ export default class Info {
     );
   }
 
-  makeOverlay() {
+  spawnOverlay() {
     this._fetchHTML()
       .then(() => {
-        this.overlay = this._createOverlay();
+        this.overlay = this._makeOverlay();
         document.body.appendChild(this.overlay);
         this._injectHTML(this.overlay);
       })
       .catch((e) => console.error(e));
   }
 
-  _createOverlay() {
+  _makeOverlay() {
     const overlay = document.createElement('div');
+    overlay.id = 'bnj0--overlay-main';
     const { style } = overlay;
     style.position = 'fixed';
     style.top = '0';
