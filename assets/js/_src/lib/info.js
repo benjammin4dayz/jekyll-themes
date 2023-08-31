@@ -46,7 +46,7 @@ export default class Info {
   _openOnKeypress(key) {
     document.addEventListener(
       'keydown',
-      (event) => event.key === key && this.spawnOverlay().bind(this)
+      (event) => event.key === key && this.spawnOverlay()
     );
   }
 

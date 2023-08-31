@@ -81,8 +81,19 @@ export default class Utils {
     console.log(`[LazyLoad]: Waiting to load ${element.id}`);
   }
 
-  static get _currentURL() {
-    // https://example.com -> example.com
+  static get check() {
+    return {
+      currentURL: Utils._getCurrentURL(),
+      isMobileDevice: Utils._testForMobile()
+    };
+  }
+
+  static _getCurrentURL() {
     return window.location.origin.split('//')[1];
+  }
+  static _testForMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
   }
 }
