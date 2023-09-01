@@ -1,13 +1,5 @@
-{% comment %}
-  {% for article in site.articles %}
-    <article id='{{ article.hash }}' class='page'>
-      {{ article.content }}
-    </article>
-  {% endfor %}
-{% endcomment %}
-
-{% for page in site.pages %}
-  {% if page.hash %}
+{% for page in site.pages -%}
+  {% if page.hash -%}
     <article id='{{ page.hash }}' class='page'>{{ page.content }}</article>
-  {% endif %}
-{% endfor %}
+  {% endif -%}
+{% endfor -%}

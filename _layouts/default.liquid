@@ -3,53 +3,18 @@
   <!-- Designed and developed by @benjammin4dayz on Discord & GitHub -->
   <!-- Check out my personal site: https://benjammin4dayz.github.io -->
   <head>
-    {% include _theme-head.html %}
-    {% include head.html %}
+    {% include _theme-head.html -%}
+    {% include head.html -%}
   </head>
   <body>
-    {% comment %}
-      <!-- Sidebar w/ Navigation Buttons -->
-      <aside>
-        <nav class="stickybar">
-          <!-- Scroll to Absolute Top -->
-          <button data-target="home" onclick="window.location.href='#home'">
-            <i class="fas fa-home"></i>
-          </button>
-          <!-- Scroll to TikTok Section -->
-          <button data-target="tiktok" onclick="window.location.href='#tiktok'">
-            <i class="fab fa-tiktok"></i>
-          </button>
-          <!-- Scroll to YouTube Section -->
-          <button
-            data-target="latest-video"
-            onclick="window.location.href='#latest-video'"
-          >
-            <i class="fab fa-youtube"></i>
-          </button>
-          <!-- Scroll to Twitch Section -->
-          <button
-            data-target="twitch-stream"
-            onclick="window.location.href='#twitch-stream'"
-          >
-            <i class="fab fa-twitch"></i>
-          </button>
-          <!-- Made by @benjammin4dayz on Discord - https://benjammin4dayz.github.io -->
-          <button id="site-info">
-            <i class="fas fa-info-circle"></i>
-          </button>
-        </nav>
-      </aside>
-    {% endcomment %}
-
-    <!-- Focus Window -->
     <main>
       <!-- Home / Landing -->
       <article id='home' class='page'>
         <!-- Tagline -->
         <header class='hero text-center'>
-          {% assign alias = site.client.name | split: ' ' | first %}
-          {% assign intro = site.client.intro %}
-          {% assign profession = site.client.profession %}
+          {% assign alias = site.client.name | split: ' ' | first -%}
+          {% assign intro = site.client.intro -%}
+          {% assign profession = site.client.profession -%}
           <h1>
             {{ intro }}
             {{ alias }}!
@@ -63,17 +28,12 @@
             alt='Portrait'
           >
         </figure>
-
         <!-- Social Links -->
-        <section class='links'>{% include _gen-socials.liquid %}</section>
-
-        {% include _gen-landing-nav.liquid %}
-
-        {% comment %} <div class='bottom-page-margin'></div> {% endcomment %}
+        <section class='links'>{% include _gen-socials.liquid -%}</section>
+        {% include _gen-landing-nav.liquid -%}
       </article>
-
       <!-- Additional Articles -->
-      {% include _gen-articles.liquid %}
+      {% include _gen-articles.liquid -%}
     </main>
     <script src='./assets/js/flow-theme.js'></script>
   </body>
