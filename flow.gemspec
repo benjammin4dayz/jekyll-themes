@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "flow"
-  spec.version = "0.1.1"
+  spec.version = "0.1.2"
   spec.authors = ["benjammin4dayz"]
   spec.email = ["42326027+benjammin4dayz@users.noreply.github.com"]
 
