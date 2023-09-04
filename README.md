@@ -65,6 +65,40 @@ hash: hello-world
 # HTML goes here.
 ```
 
+### Basic Lazy Load
+
+```js
+const whenThisElementIsObserved = 'my-element-id';
+const forThisAmountOfTime = 100; // ms
+const thisHappensAsAResult = () => console.log('Hello, world!');
+
+// Post 'Hello, world' to the console when 'my-element-id' is observed for 100ms
+FlowTheme.Utils.lazyLoad(
+  whenThisElementIsObserved,
+  forThisAmountOfTime,
+  thisHappensAsAResult
+);
+```
+
+### Embed Helper
+
+#### YouTube
+
+```js
+const YouTube = new FlowTheme.EmbedHelper.YouTube(
+  'your-channel-id',
+  'embed-target-id'
+);
+YouTube.fetchVideo().then((video) => {
+  console.log(video.data);
+  video.embed();
+});
+```
+
+#### Twitch
+
+Not implemented yet :(
+
 ## Contributing
 
 Please share any bugs that you encounter on [GitHub](https://github.com/benjammin4dayz/jekyll-themes) or contact me on Discord @`benjammin4dayz`
