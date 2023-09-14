@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |spec|
   spec.name = "flow"
-  spec.version = "0.1.3"
+  spec.version = "0.1.31"
   spec.authors = ["benjammin4dayz"]
   spec.email = ["42326027+benjammin4dayz@users.noreply.github.com"]
 
   spec.summary = "A simple and elegant SPA-inspired portfolio theme for Jekyll."
-  spec.homepage = "https://benjammin4dayz.github.io/jekyll-themes/flow" # TODO: Create a demo site using this theme
+  spec.homepage = "https://benjammin4dayz.github.io/jekyll-themes/flow"
   spec.license = "MIT"
 
   spec.metadata["plugin_type"] = "theme"

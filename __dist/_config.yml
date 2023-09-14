@@ -30,3 +30,7 @@ colors:
   accent:
   accent_alt:
   text:
+
+exclude:
+  - assets/portrait.txt
+  - serve.rb
