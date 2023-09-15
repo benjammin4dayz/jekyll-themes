@@ -8,11 +8,7 @@ module Flow
       .join("\n")
   end
 
-  def self.prod_scaffold
-    Utils.make_prod_scaffold()
-  end
-
-  def self.dev_scaffold
-    Utils.make_dev_scaffold()
+  def self.scaffold
+    Utils.make_scaffold()
   end
 end

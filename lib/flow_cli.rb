@@ -5,13 +5,9 @@ module Flow::CLI
   def self.init
     # Define the available subcommands
     subcommands = {
-      "init" => {
-        description: "Get the production scaffold",
-        handler: -> { puts Flow.prod_scaffold },
-      },
-      "dev" => {
-        description: "Get the development scaffold",
-        handler: -> { puts Flow.dev_scaffold },
+      "dist" => {
+        description: "Get the project scaffold",
+        handler: -> { puts Flow.scaffold },
       },
     }
 

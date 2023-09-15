@@ -10,22 +10,7 @@ module Utils
     attr_reader :dist_dir, :dest_dir, :dest_dir_dev
   end
 
-  def self.make_prod_scaffold
-    FileUtils.mkdir_p(self.dest_dir)
-
-    Dir.glob(File.join(self.dist_dir, "**", "*")).each do |file|
-      relative_path = file.sub(self.dist_dir + "/", "")
-      destination = File.join(self.dest_dir, relative_path)
-
-      if File.directory?(file)
-        FileUtils.mkdir_p(destination)
-      else
-        FileUtils.cp(file, destination)
-      end
-    end
-  end
-
-  def self.make_dev_scaffold
+  def self.make_scaffold
     Dir.mkdir(self.dest_dir_dev) unless Dir.exist?(self.dest_dir_dev)
 
     # Recursively copy files from self.dist_dir to self.dest_dir_dev, excluding _config.yml and Gemfile
