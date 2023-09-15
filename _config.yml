@@ -17,6 +17,7 @@ social:
 
 sass:
   style: compressed
+  sourcemap: never
   # load_paths:
   #   - _sass/color-presets
 

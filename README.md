@@ -4,28 +4,34 @@
 
 ## Installation
 
-#### Automatic
+#### As a Ruby Gem
 
-Use [specific_install](https://rubygems.org/gems/specific_install) to clone and install this branch as a gem
+1.  Download the latest release of the [Flow Theme gem](https://github.com/benjammin4dayz/jekyll-themes/tags)
 
-    $ gem install specific_install
-    $ gem specific_install -l 'https://github.com/benjammin4dayz/jekyll-themes.git' -b 'flow-src'
+2.  Navigate to the directory where flow-v0.0.0.gem is located and install it.
 
-Get the project scaffold:
+        $ cd ./user/downloads
+        $ gem install flow
 
-    $ flow init
+    > Alternatively, you can use [specific_install](https://rubygems.org/gems/specific_install) to clone and install this branch as a gem
 
-#### Build it Yourself
+        $ gem install specific_install
+        $ gem specific_install -l 'https://github.com/benjammin4dayz/jekyll-themes.git' -b 'flow-src'
 
-Clone my repo and switch to the proper branch
+3.  Get the project scaffold:
 
-    $ git clone https://github.com/benjammin4dayz/jekyll-themes.git
-    $ git checkout flow-src
+          $ flow dist
 
-Get the distributable files by invoking `dist.rb` on the CLI, or call Bundler directly
+#### Git / Build it Yourself
 
-    $ .\dist
-    $ bundle exec flow init
+1.  Clone my repo and switch to the proper branch (or download [a release](https://github.com/benjammin4dayz/jekyll-themes/tags))
+
+        $ git clone https://github.com/benjammin4dayz/jekyll-themes.git
+        $ git checkout flow-src
+
+2.  Get the distributable files by invoking `dist.rb` on the CLI, or call Bundler directly
+
+        $ bundle exec flow dist
 
 ## Usage
 
@@ -101,7 +107,7 @@ Not implemented yet :(
 
 ## Contributing
 
-Please share any bugs that you encounter on [GitHub](https://github.com/benjammin4dayz/jekyll-themes) or contact me on Discord @`benjammin4dayz`
+Please share any bugs that you encounter on [GitHub](https://github.com/benjammin4dayz/jekyll-themes) or contact me on Discord `@benjammin4dayz`
 
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
