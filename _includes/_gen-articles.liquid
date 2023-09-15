@@ -1,5 +1,5 @@
 {% for page in site.pages -%}
-  {% if page.hash -%}
-    <article id='{{ page.hash }}' class='page'>{{ page.content }}</article>
+  {% if page.anchor -%}
+    <article id='{{ page.anchor }}' class='page'>{{ page.content }}</article>
   {% endif -%}
 {% endfor -%}

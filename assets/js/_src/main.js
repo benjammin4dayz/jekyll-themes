@@ -7,7 +7,7 @@ import EmbedHelper from './lib/embed-helper.js';
 new Info();
 new StickyHeader('landing-nav');
 // new TrueViewHeight(); //TODO: Improve or prune
-Utils.trackPageHash('.landing-nav a', 'active');
+Utils.updateActiveNavButtons('.landing-nav a', 'active');
 
 export {
   //   Info,

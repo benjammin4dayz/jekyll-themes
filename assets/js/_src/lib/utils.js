@@ -1,6 +1,5 @@
 export default class Utils {
-  static trackPageHash(navButtonQuery, elementActiveClass) {
-    // Update page hash to reflect the active article as the user scrolls
+  static updateActiveNavButtons(navButtonQuery, elementActiveClass) {
     // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
     const observer = new IntersectionObserver(
       (entries) => {
@@ -9,10 +8,6 @@ export default class Utils {
             const target = entry.target;
             const id = target.getAttribute('id');
             if (id) {
-              // Use replaceState to update the URL without triggering refresh or navigation
-              // https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState
-              window.history.replaceState(null, null, `#${id}`);
-
               // Highlight the navigational buttons for the current article
               const navButtons = document.querySelectorAll(navButtonQuery);
               navButtons.forEach((el) => {
@@ -83,13 +78,9 @@ export default class Utils {
 
   static get check() {
     return {
-      currentURL: Utils._getCurrentURL(),
+      currentURL: window.location.origin.split('//')[1],
       isMobileDevice: Utils._testForMobile()
     };
-  }
-
-  static _getCurrentURL() {
-    return window.location.origin.split('//')[1];
   }
   static _testForMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
