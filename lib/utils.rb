@@ -28,13 +28,17 @@ module Utils
   def self.make_dev_scaffold
     Dir.mkdir(self.dest_dir_dev) unless Dir.exist?(self.dest_dir_dev)
 
-    # Copy all files from self.dist_dir to self.dest_dir_dev excluding directories, _config.yml, and Gemfile
-    Dir.glob("#{self.dist_dir}/**/*").each do |file|
-      next if File.directory?(file) || File.basename(file) == "_config.yml" || File.basename(file) == "Gemfile"
+    # Recursively copy files from self.dist_dir to self.dest_dir_dev, excluding _config.yml and Gemfile
+    Dir.glob("#{self.dist_dir}/**/*", File::FNM_DOTMATCH).each do |file|
+      next if File.basename(file) == "." || File.basename(file) == ".." || File.basename(file) == "_config.yml" || File.basename(file) == "Gemfile"
 
       destination_file = File.join(self.dest_dir_dev, file.sub("#{self.dist_dir}/", ""))
-      FileUtils.mkdir_p(File.dirname(destination_file))
-      FileUtils.cp(file, destination_file)
+      if File.directory?(file)
+        FileUtils.mkdir_p(destination_file)
+      else
+        FileUtils.mkdir_p(File.dirname(destination_file))
+        FileUtils.cp(file, destination_file)
+      end
     end
 
     # Copy _config.yml only if it does not exist in the destination directory
