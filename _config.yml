@@ -21,6 +21,9 @@ sass:
   # load_paths:
   #   - _sass/color-presets
 
+plugins:
+  - jekyll-seo-tag
+
 exclude:
   - Gemfile
   - Gemfile.lock

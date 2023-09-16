@@ -2,6 +2,7 @@ source "https://rubygems.org"
 gemspec
 
 gem "jekyll", "~> 4.3.2"
+gem "jekyll-seo-tag", "~> 2.8.0"
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
