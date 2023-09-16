@@ -65,7 +65,8 @@ Create `n-article.html` in the project root, where `n` is the order in which it 
 ```yaml
 # 0-hello.html
 ---
-hash: hello-world
+title: Hello World # As displayed on the nav button
+anchor: hello-world
 ---
 # ...
 # HTML goes here.
