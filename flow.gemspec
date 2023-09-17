@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "flow"
-  spec.version = "0.1.7"
+  spec.version = "0.2.0"
   spec.authors = ["benjammin4dayz"]
   spec.email = ["42326027+benjammin4dayz@users.noreply.github.com"]
 
@@ -17,5 +17,5 @@ Gem::Specification.new do |spec|
   spec.executables = ["flow"]
 
   spec.add_runtime_dependency "jekyll", "~> 4.3.2"
-  spec.add_development_dependency "bundler", "~> 2.4.19"
+  spec.add_development_dependency "bundler", "~> 2.4.1"
 end

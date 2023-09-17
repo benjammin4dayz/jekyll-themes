@@ -1,5 +1,5 @@
-{% for page in site.pages -%}
-  {% if page.anchor -%}
+{% for article in site.articles -%}
+  {% if article.anchor -%}
     {% assign generate = true -%}
     {% break -%}
   {% endif -%}
@@ -7,10 +7,10 @@
 {% if generate == true -%}
   <nav id='landing-nav' class='landing-nav'>
     <div class='container background border'>
-      {% for page in site.pages -%}
-        {% if page.anchor -%}
-          <a data-target='{{ page.anchor }}' href='#{{ page.anchor }}'>
-            {{- page.title | default: page.anchor }}
+      {% for article in site.articles -%}
+        {% if article.anchor -%}
+          <a data-target='{{ article.anchor }}' href='#{{ article.anchor }}'>
+            {{- article.title | default: article.anchor }}
           </a>
         {% endif -%}
       {% endfor -%}

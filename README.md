@@ -60,16 +60,24 @@ social:
 
 ### Add New Articles
 
-Create `n-article.html` in the project root, where `n` is the order in which it should appear.
+Create `n-article.html` in the `_articles` folder, where `n` is the order in which it should appear.
 
-```yaml
-# 0-hello.html
+- Note: do not worry about `<!DOCTYPE>`, `<head>`, or `<body>` tags- they are handled for you.
+
+- To include links inside the document head, use `_includes/head.html`
+
+```html
 ---
-title: Hello World # As displayed on the nav button
-anchor: hello-world
+title: Page One
+anchor: page-one
 ---
-# ...
-# HTML goes here.
+
+<section id="example-article">
+  <header>
+    <h1>This is a page</h1>
+  </header>
+  <p>Copy me to create new scrollable pages</p>
+</section>
 ```
 
 ### Basic Lazy Load
