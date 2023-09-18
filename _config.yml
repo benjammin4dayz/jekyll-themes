@@ -1,6 +1,7 @@
 # Site settings
-title: Flow | A Jekyll Theme
-description: We don't know much about this website, but we're sure it's great! # Short description of the site which will appear in search engines
+title: Flow
+tagline: A Jekyll Theme
+description: Flow is a simple and elegant SPA-inspired portfolio theme for Jekyll.
 baseurl: '' # The subpath of your site, e.g. /blog
 url: '' # The base hostname & protocol for your site
 
@@ -20,9 +21,6 @@ sass:
   sourcemap: never
   # load_paths:
   #   - _sass/color-presets
-
-plugins:
-  - jekyll-seo-tag
 
 exclude:
   - Gemfile

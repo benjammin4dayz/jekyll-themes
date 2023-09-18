@@ -1,6 +1,7 @@
 # Site settings
 title: # The title of your site
-description: # Short description of your site that will appear in search engines
+tagline: # Short description that will appear next to the title of the browser tab
+description: # Full description of your site that will appear in search engines
 baseurl: '' # The subpath of your site, e.g. /blog
 url: 'https://example.com' # The base hostname & protocol for your site
 
@@ -40,5 +41,4 @@ plugins:
   - jekyll-seo-tag
 
 exclude:
-  - serve.rb
   - README.md

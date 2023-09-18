@@ -35,6 +35,25 @@
 
 ## Usage
 
+### Add Site Icon (Favicon)
+
+1.  Generate and download your favicon using your preferred method
+    - I suggest [favicon.ico](https://favicon.ico) by [John Sorrentino](https://twitter.com/johnsorrentino)
+2.  Extract your favicon files in `assets/favicon/`
+
+        - _articles/
+        - _includes/
+        - assets/
+          - js/
+          - favicon/
+            - android-chrome-192x192.png
+            - android-chrome-512x512.png
+            - apple-touch-icon.png
+            - favicon.ico
+            - favicon-16x16.png
+            - favicon-32x32.png
+            - site.webmanifest
+
 ### Add Portrait:
 
 Specify a URL or replace the [local portrait](./assets/portrait.jpg) found at `./assets/portrait.jpg`
@@ -62,9 +81,9 @@ social:
 
 Create `n-article.html` in the `_articles` folder, where `n` is the order in which it should appear.
 
-- Note: do not worry about `<!DOCTYPE>`, `<head>`, or `<body>` tags- they are handled for you.
+- Note: don't worry about `<!DOCTYPE>`, `<head>`, or `<body>` tags- they are handled for you.
 
-- To include links inside the document head, use `_includes/head.html`
+  - To include something in the document head, use `_includes/head.html`
 
 ```html
 ---
@@ -116,7 +135,7 @@ Not implemented yet :(
 
 ## Contributing
 
-Please share any bugs that you encounter on [GitHub](https://github.com/benjammin4dayz/jekyll-themes) or contact me on Discord `@benjammin4dayz`
+Please share any bugs that you encounter on [GitHub](https://github.com/benjammin4dayz/jekyll-themes) or contact me on Discord @benjammin4dayz
 
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
