@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang='en'>
-  <!-- Designed and developed by @benjammin4dayz on Discord & GitHub -->
+  <!-- Flow Theme for Jekyll by @benjammin4dayz on Discord & GitHub -->
   <!-- Check out my personal site: https://benjammin4dayz.github.io -->
   <head>
     {% include _theme-head.html -%}
@@ -23,8 +23,15 @@
         </header>
         <!-- Portrait Photo -->
         <figure>
+          {% if site.client.portrait_url -%}
+            {% assign portrait_src = site.client.portrait_url -%}
+          {% else -%}
+            {% assign portrait_src = site.baseurl
+              | append: '/assets/portrait.jpg'
+            -%}
+          {% endif -%}
           <img
-            src='{{ site.client.portrait_url | default: './assets/portrait.jpg' }}'
+            src='{{ portrait_src }}'
             alt='Portrait'
           >
         </figure>
@@ -35,7 +42,7 @@
       <!-- Additional Articles -->
       {% include _gen-articles.liquid -%}
     </main>
-    <script src='./assets/js/flow-theme.js'></script>
+    <script src='{{ site.baseurl }}/assets/js/flow-theme.js'></script>
   </body>
   <!-- © 2023 Benjammin4dayz. Some rights reserved. -->
 </html>
