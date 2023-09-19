@@ -1,1 +1,1 @@
-system("bundle exec flow dist")
+system("bundle exec flow go")

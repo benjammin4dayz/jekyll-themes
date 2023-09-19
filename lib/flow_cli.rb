@@ -5,9 +5,9 @@ module Flow::CLI
   def self.init
     # Define the available subcommands
     subcommands = {
-      "dist" => {
+      "go" => {
         description: "Get the project scaffold",
-        handler: -> { puts Flow.scaffold },
+        handler: -> { puts Flow.scaffold(ARGV.first || Dir.pwd + "/jekyll-flow") },
       },
     }
 
