@@ -11,3 +11,4 @@ serve.rb
 
 # Other
 *.map
+*lock

@@ -4,34 +4,38 @@
 
 ## Installation
 
-#### As a Ruby Gem
+1. Download [theme scaffold](https://github.com/benjammin4dayz/jekyll-themes/releases?q=Flow)
 
-1.  Download the latest release of the [Flow Theme gem](https://github.com/benjammin4dayz/jekyll-themes/tags)
+2. Customize `_config.yml`
 
-2.  Navigate to the directory where flow-v0.0.0.gem is located and install it.
+3. Upload to GitHub (or build locally)
 
-        $ cd ./user/downloads
-        $ gem install flow
+4. Go to your repository settings tab and enable GitHub Pages via Actions
 
-    > Alternatively, you can use [specific_install](https://rubygems.org/gems/specific_install) to clone and install this branch as a gem
+5. Go to your repository actions tab and trigger the workflow to generate your website
 
-        $ gem install specific_install
-        $ gem specific_install -l 'https://github.com/benjammin4dayz/jekyll-themes.git' -b 'flow-src'
+### As a Ruby Gem
 
-3.  Get the project scaffold:
+#### Note: Replace references to `flow-v0.0.0` with the appropriate version
 
-          $ flow dist
+- Use Bundler
 
-#### Git / Build it Yourself
+  - Create a Gemfile and paste this
 
-1.  Clone my repo and switch to the proper branch (or download [a release](https://github.com/benjammin4dayz/jekyll-themes/tags))
+    ```ruby
+    source "https://rubygems.org"
+    gem "flow", tag: 'flow-v0.0.0', github: 'benjammin4dayz/jekyll-themes'
+    ```
 
-        $ git clone https://github.com/benjammin4dayz/jekyll-themes.git
-        $ git checkout flow-src
+  - Then get the template
 
-2.  Get the distributable files by invoking `dist.rb` on the CLI, or call Bundler directly
+        $ bundle install
+        $ bundle exec flow go
 
-        $ bundle exec flow dist
+- Use [specific_install](https://rubygems.org/gems/specific_install) if you're too lazy to add a Gemfile
+
+      $ gem install specific_install
+      $ gem specific_install -l 'https://github.com/benjammin4dayz/jekyll-themes.git' -t 'flow-v0.0.0'
 
 ## Usage
 
@@ -81,9 +85,7 @@ social:
 
 Create `n-article.html` in the `_articles` folder, where `n` is the order in which it should appear.
 
-- Note: don't worry about `<!DOCTYPE>`, `<head>`, or `<body>` tags- they are handled for you.
-
-  - To include something in the document head, use `_includes/head.html`
+- To include something in the document head, use `_includes/head.html`
 
 ```html
 ---
@@ -99,6 +101,22 @@ anchor: page-one
 </section>
 ```
 
+### Add Custom Pages
+
+Create the HTML document in your project root with the following front matter:
+
+- To include something in the document head, use `_includes/custom-head.html`
+
+```yaml
+---
+title: My Custom Page
+description: Hello, search engine robots!
+layout: custom
+---
+```
+
+**Note:** don't worry about `<!DOCTYPE>`, `<head>`, or `<body>` tags- they are handled for you.
+
 ### Basic Lazy Load
 
 ```js
@@ -107,7 +125,7 @@ const forThisAmountOfTime = 100; // ms
 const thisHappensAsAResult = () => console.log('Hello, world!');
 
 // Post 'Hello, world' to the console when 'my-element-id' is observed for 100ms
-FlowTheme.Utils.lazyLoad(
+FlowTheme.lazy(
   whenThisElementIsObserved,
   forThisAmountOfTime,
   thisHappensAsAResult
@@ -123,9 +141,10 @@ const YouTube = new FlowTheme.EmbedHelper.YouTube(
   'your-channel-id',
   'embed-target-id'
 );
-YouTube.fetchVideo().then((video) => {
-  console.log(video.data);
-  video.embed();
+YouTube.fetchVideoData().then((data) => {
+  const { mostRecentVideo, list } = data;
+  mostRecentVideo.embed();
+  list[i].embed();
 });
 ```
 
@@ -149,7 +168,13 @@ Clone the repo
 Get the distributables and navigate to the output directory
 
     $ .\dist
-    $ cd ../jekyll-flow
+    $ cd jekyll-flow
+
+Modify the Gemfile to point `flow` to the gem development path instead of the repo
+
+```ruby
+gem "flow", path: '../'
+```
 
 Call `bundler exec jekyll serve` using the `serve.rb` alias
 
