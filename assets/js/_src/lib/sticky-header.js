@@ -1,51 +1,58 @@
 export default class StickyHeader {
-  constructor(elementId) {
+  constructor(elementId, modifiers) {
     this.headerId = elementId;
+    this.modifiers = modifiers;
     this.init();
   }
 
   init() {
-    this.origin = this.calculateInitialPosition();
+    this.origin = this._calculateInitialPosition();
     this._onScroll(this.toggleSticky);
   }
 
-  calculateInitialPosition(el = this.header) {
+  toggleSticky(scrollY = window.scrollY) {
+    scrollY > this.offsetTop ? this._makeSticky() : this._makeClean();
+    if (scrollY <= this.origin.top) this._makeClean();
+  }
+
+  _calculateInitialPosition(el = this.header) {
     const rect = el.getBoundingClientRect();
     const top = rect.top + window.scrollY;
     const left = rect.left + window.scrollX;
     return { top, left };
   }
 
-  toggleSticky(scrollY = window.scrollY) {
-    scrollY > this.offsetTop ? this._makeSticky() : this._makeNotSticky();
-    if (scrollY <= this.origin.top) this._makeNotSticky();
+  get isSticky() {
+    return this.header.classList.contains(this.modifiers.sticky) ? true : false;
   }
 
   _makeSticky() {
-    if (!this.header.classList.contains('sticky')) {
-      this._createPlaceholder();
-      this._addClass('sticky');
+    if (!this.isSticky) {
+      this._removeClass(this.modifiers.clean);
+      this._placeholder(true);
+      this._addClass(this.modifiers.sticky);
     }
   }
 
-  _makeNotSticky() {
-    if (this.header.classList.contains('sticky')) {
-      this._removePlaceholder();
-      this._removeClass('sticky');
+  _makeClean() {
+    if (this.isSticky) {
+      this._removeClass(this.modifiers.sticky);
+      this._placeholder(false);
+      this._addClass(this.modifiers.clean);
     }
   }
 
-  _createPlaceholder() {
-    const placeholder = document.createElement('div');
-    placeholder.style.height = `${this.header.offsetHeight}px`;
-    this.header.parentNode.insertBefore(placeholder, this.header);
-    this.placeholder = placeholder;
-  }
-
-  _removePlaceholder() {
-    if (this.placeholder) {
-      this.placeholder.parentNode.removeChild(this.placeholder);
-      this.placeholder = null;
+  _placeholder(bool) {
+    if (bool) {
+      const placeholder = document.createElement('div');
+      placeholder.style.height = `${this.header.offsetHeight}px`;
+      this.header.parentNode.insertBefore(placeholder, this.header);
+      this.placeholder = placeholder;
+    } else if (!bool) {
+      if (this.placeholder) {
+        this.placeholder.parentNode.removeChild(this.placeholder);
+        this.placeholder = null;
+      }
     }
   }
 
@@ -83,5 +90,21 @@ export default class StickyHeader {
 
   get origin() {
     return this._origin;
+  }
+
+  set modifiers(mod) {
+    if (!Array.isArray(mod)) {
+      throw TypeError(
+        '[Sticky-Header]: Constructor opt [modifiers] must be an array of classnames where arr[0] is initial state and arr[1] is sticky'
+      );
+    }
+    this._modifiers = {
+      clean: mod[0],
+      sticky: mod[1]
+    };
+  }
+
+  get modifiers() {
+    return this._modifiers;
   }
 }

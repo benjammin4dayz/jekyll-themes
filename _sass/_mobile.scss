@@ -1,20 +1,19 @@
 /* me: (╯°□°）╯ mobile: ︵ ┻━┻ */
 @media screen and (max-width: 480px) {
-  .links {
-    gap: 5px;
-    transform: scale(0.6);
-    margin-bottom: 1.5rem;
-    padding: 15px;
-    background-color: var(--dark-color-zero);
-    border-radius: 25px;
+  .home-landing {
+    &__social-links {
+      &-container {
+        gap: 5px;
+        transform: scale(0.6) !important;
+      }
+    }
   }
-  h1 {
-    font-size: 32px !important;
-  }
-  h4 {
-    font-size: 16px !important;
-  }
-  .landing-nav {
-    width: 100%;
+  .home-landing__hero {
+    h1 {
+      font-size: 32px !important;
+    }
+    h4 {
+      font-size: 16px !important;
+    }
   }
 }

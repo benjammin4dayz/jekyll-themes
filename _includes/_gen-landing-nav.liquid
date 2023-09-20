@@ -5,11 +5,18 @@
   {% endif -%}
 {% endfor -%}
 {% if generate == true -%}
-  <nav id='landing-nav' class='landing-nav'>
-    <div class='container background border'>
+  <nav
+    id='sticky-header'
+    class='article-navigation article-navigation__bar--clean'
+  >
+    <div class='article-navigation__bar'>
       {% for article in site.articles -%}
         {% if article.anchor -%}
-          <a data-target='{{ article.anchor }}' href='#{{ article.anchor }}'>
+          <a
+            class='article-navigation__button'
+            data-target='{{ article.anchor }}'
+            href='#{{ article.anchor }}'
+          >
             {{- article.title | default: article.anchor }}
           </a>
         {% endif -%}

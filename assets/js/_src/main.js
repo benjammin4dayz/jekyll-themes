@@ -5,9 +5,15 @@ import Utils from './lib/utils.js';
 import EmbedHelper from './lib/embed-helper.js';
 
 new Info();
-new StickyHeader('landing-nav');
+new StickyHeader('sticky-header', [
+  'article-navigation__bar--clean',
+  'article-navigation__bar--sticky'
+]);
 // new TrueViewHeight(); //TODO: Improve or prune
-Utils.updateActiveNavButtons('.landing-nav a', 'active');
+Utils.updateActiveNavButtons(
+  '.article-navigation__button',
+  'article-navigation__button--current-anchor'
+);
 
 export {
   //   Info,

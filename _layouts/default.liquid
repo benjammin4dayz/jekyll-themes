@@ -9,20 +9,20 @@
   <body>
     <main>
       <!-- Home / Landing -->
-      <article id='home' class='page'>
+      <article id='home' class='page home-landing__background'>
         <!-- Tagline -->
-        <header class='hero text-center'>
+        <header class='home-landing__hero home-landing__hero--flexcol text-center'>
           {% assign alias = site.client.name | split: ' ' | first -%}
           {% assign intro = site.client.intro -%}
           {% assign profession = site.client.profession -%}
-          <h1>
+          <h1 class='home-landing__hero-big-text'>
             {{ intro }}
             {{ alias }}!
           </h1>
-          <h4>{{ profession }}</h4>
+          <h4 class='home-landing__hero-less-big-text'>{{ profession }}</h4>
         </header>
         <!-- Portrait Photo -->
-        <figure>
+        <figure class='home-landing__portrait-frame'>
           {% if site.client.portrait_url -%}
             {% assign portrait_src = site.client.portrait_url -%}
           {% else -%}
@@ -33,16 +33,20 @@
           <img
             src='{{ portrait_src }}'
             alt='Portrait'
+            class='home-landing__portrait-image'
           >
         </figure>
         <!-- Social Links -->
-        <section class='links'>{% include _gen-socials.liquid -%}</section>
+        <section class='home-landing__social-links-container'>
+          {% include _gen-socials.liquid -%}
+        </section>
         {% include _gen-landing-nav.liquid -%}
       </article>
       <!-- Additional Articles -->
       {% include _gen-articles.liquid -%}
     </main>
     <script src='{{ site.baseurl }}/assets/js/flow-theme.js'></script>
+    {{ content }}
   </body>
   <!-- © 2023 Benjammin4dayz. Some rights reserved. -->
 </html>

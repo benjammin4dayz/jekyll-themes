@@ -3,6 +3,7 @@
     <a
       href='https://{{ social.platform | downcase }}.com/{{ social.handle }}'
       target='_blank'
+      class='home-landing__social-links home-landing__social-links--deco'
     >
       {% for item in site.data.social_icons -%}
         {% assign requested = item.platform | downcase -%}

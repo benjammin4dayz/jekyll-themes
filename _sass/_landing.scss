@@ -1,27 +1,26 @@
-#home {
-  background: var(--gradient);
-  header {
+.home-landing {
+  &__background {
+    background: var(--gradient);
+  }
+  &__hero--flexcol {
     display: flex;
     flex-direction: column;
     flex: 0.33;
   }
-
-  .hero {
-    h1 {
+  &__hero {
+    &-big-text {
       margin-bottom: 10px;
       font-size: 48px;
       font-weight: bold;
       color: var(--text-color);
     }
-    h4 {
+    &-less-big-text {
       margin-bottom: 20px;
       font-size: 24px;
       color: var(--text-color);
     }
   }
-
-  /* Circle Portrait Border*/
-  figure {
+  &__portrait-frame {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     aspect-ratio: 1;
     display: flex;
@@ -35,41 +34,34 @@
     animation: pulse-border 10s ease infinite;
     border: 7px solid var(--secondary-color);
     border-radius: 100%;
-    img {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-      margin: auto;
-      border-radius: 100%;
-    }
   }
-  /* Social Links */
-  .links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+  &__portrait-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border-radius: 100%;
+  }
+  &__social-links {
+    &-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
     flex: 0;
     margin: 1.3rem 0;
-    a {
-      animation: pulse-color 10s ease infinite;
-      color: var(--tertiary-color);
-      text-decoration: none;
-      &:hover {
-        transform: translateY(-5px);
-        animation: none;
-        color: var(--accent-color);
-      }
-      &:active {
-        transform: scale(1.5);
-      }
+  }
+  &__social-links--deco {
+    animation: pulse-color 10s ease infinite;
+    color: var(--tertiary-color);
+    text-decoration: none;
+    &:hover {
+      transform: translateY(-5px);
+      animation: none;
+      color: var(--accent-color);
+    }
+    &:active {
+      transform: scale(1.5);
     }
   }
-
-  .bottom-page-margin {
-    flex-shrink: 0;
-    flex: 0.33;
-    min-height: 75px;
-    margin-bottom: 100px;
-  }
 }
-/* --- */
