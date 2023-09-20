@@ -2,8 +2,8 @@
 /* Smoooth snap scrolling */
 html {
   --vh: 100vh;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  // scroll-snap-type: y mandatory;
+  // scroll-behavior: smooth;
 }
 /* Flex <aside> and <main> elements horizontally in the window */
 body {

@@ -13,55 +13,88 @@ export default class YouTube {
 
   /**
    * @returns {Promise<{
-   *   data: {
-   *     title: string;
-   *     pubDate: string;
-   *     link: string;
-   *     author: string;
-   *     thumbnail: string;
-   *     description: string;
-   *   };
-   *   embed: () => void;
-   * }>} A promise that resolves to an object containing the latest video data and an embed method.
+   *   video: {
+   *     mostRecent: {
+   *      title: string;
+   *      pubDate: string;
+   *      link: string;
+   *      author: string;
+   *      thumbnail: string;
+   *      description: string;
+   *      embed: () => void;
+   *     },
+   *     list: [{
+   *      title: string;
+   *      pubDate: string;
+   *      link: string;
+   *      author: string;
+   *      thumbnail: string;
+   *      description: string;
+   *      embed: () => void;
+   *     }]
+   *    }
+   * }>} An object containing video data with an embed method
    *
    * @example
-   * YouTube.fetchVideo().then((video) => {
-   *  console.log(video.data);
-   *  video.embed();
+   * const YouTube = new YouTube(yourChannelId, targetEmbedId);
+   * YouTube.fetchVideoData().then((data) => {
+   * // Embed the most recent video
+   * data.video.mostRecent.embed();
+   * // Embed a specific video
+   * data.video.list[i].embed();
    * })
    */
-  async fetchVideo() {
-    return fetch(
-      encodeURI(
-        'https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=' +
-          this.channelId
-      )
-    )
-      .then((response) => response.json())
-      .then((data) => (this.data = data))
-      .then(() => {
-        return {
-          data: this.video,
-          embed: this._embedLastVideo.bind(this)
-        };
-      })
-      .catch((e) => this._throwError('noFetch'));
+  async fetchVideoData() {
+    const isCached = this.cache;
+
+    return isCached
+      ? this.cache
+      : fetch(
+          encodeURI(
+            'https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=' +
+              this.channelId
+          )
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            this.data = data;
+            this.videos = data.items;
+          })
+          .then(() => {
+            // this._cacheVideoData(); // embed() method isnt saved to cache which leads to inconsistent behavior
+            return this.videos;
+          })
+          .catch((e) => this._throwError('noFetch'));
   }
 
-  /**
-   * Destructured data object representative of the latest video.
-   */
-  get video() {
-    const { title, pubDate, link, author, thumbnail, description } =
-      this.data.items[0];
+  set videos(data) {
+    this._videos = data.map((item) => {
+      const { title, pubDate, link, author, thumbnail, description } = item;
+      return {
+        title,
+        pubDate,
+        link,
+        author,
+        thumbnail,
+        description,
+        embed: () => this._embedVideo(item)
+      };
+    });
+  }
+
+  get videos() {
     return {
-      title,
-      pubDate,
-      link,
-      author,
-      thumbnail,
-      description
+      mostRecent: this._videos[0],
+      list: this._videos
     };
+  }
+
+  get cache() {
+    let cache;
+    try {
+      cache = JSON.parse(sessionStorage.getItem(this.channelId));
+    } catch {}
+    return cache;
   }
 
   // Constructor
@@ -91,10 +124,17 @@ export default class YouTube {
     return this._data;
   }
   // Private
-  _embedLastVideo() {
-    const link = this.video.link;
+  _embedVideo(data = this.videos.mostRecent) {
+    const { link } = data;
     const id = link.substr(link.indexOf('=') + 1);
     this.embedTarget.src = `https://youtube.com/embed/${id}/?controls=0&showinfo=0&rel=0`;
+  }
+  _cacheVideoData() {
+    try {
+      sessionStorage.setItem(this.channelId, JSON.stringify(this.videos));
+    } catch {
+      console.error('noCache');
+    }
   }
   _throwError(err) {
     if (err instanceof Error) throw err;
@@ -105,6 +145,7 @@ export default class YouTube {
     err === 'noFetch' &&
       (err = `An error occurred while fetching channel data`);
     err === 'invalidChannelData' && (err = `Channel Data must be an object`);
+    err === 'noCache' && (err = `An error occurred while caching video data`);
     throw new Error(`[YouTube-Embed]: ${err}`);
   }
 }
