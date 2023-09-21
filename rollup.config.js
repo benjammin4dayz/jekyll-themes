@@ -1,22 +1,13 @@
-import terser from '@rollup/plugin-terser';
+const terser = require('@rollup/plugin-terser');
+const commonjs = require('@rollup/plugin-commonjs');
 
-const SRC = {
-  path: 'assets/js/_src/',
-  name: 'main.js'
-};
-
-const OUT = {
-  path: 'assets/js/',
-  name: 'flow-theme.js'
-};
-
-export default {
-  input: SRC.path + SRC.name,
+module.exports = {
+  input: 'assets/js/_src/main.js',
   output: {
-    file: OUT.path + OUT.name,
+    file: 'assets/js/flow-theme.js',
     format: 'iife',
     name: 'FlowTheme',
-    sourcemap: false
+    sourcemap: !process.env.ROLLUP_WATCH ? false : 'inline'
   },
-  plugins: [terser()]
+  plugins: [terser(), commonjs()]
 };

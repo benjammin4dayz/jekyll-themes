@@ -1,4 +1,4 @@
-export default class Utils {
+class Utils {
   static updateActiveNavButtons(navButtonQuery, elementActiveClass) {
     // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
     const observer = new IntersectionObserver(
@@ -88,3 +88,5 @@ export default class Utils {
     );
   }
 }
+
+module.exports = Utils;

@@ -1,10 +1,11 @@
 {
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "rollup": "rollup -c --bundleConfigAsCjs"
+    "rollup": "rollup -c"
   },
   "devDependencies": {
     "rollup": "^3.28.1",
-    "@rollup/plugin-terser": "^0.4.3"
+    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-commonjs": "^9.5.1"
   }
 }

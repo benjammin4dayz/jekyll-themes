@@ -1,4 +1,4 @@
-export default class Info {
+class Info {
   constructor() {
     this.source = '6a92351396da31b26e2d97f204f3d1a0';
     this.init();
@@ -72,3 +72,5 @@ export default class Info {
     return this._overlay;
   }
 }
+
+module.exports = Info;

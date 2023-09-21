@@ -1,5 +1,5 @@
 // https://stackoverflow.com/questions/18267426/html-auto-embedding-recent-uploaded-videos-from-a-youtube-channel
-export default class YouTube {
+class YouTube {
   /**
    *
    * @param {String} channelId - YouTube Channel ID e.g. `UCUZHFZ9jIKrLroW8LcyJEQQ`
@@ -149,3 +149,5 @@ export default class YouTube {
     throw new Error(`[YouTube-Embed]: ${err}`);
   }
 }
+
+module.exports = YouTube;

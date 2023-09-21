@@ -1,11 +1,14 @@
-import Info from './lib/info.js';
-import StickyHeader from './lib/sticky-header.js';
-import Utils from './lib/utils.js';
-import EmbedHelper from './lib/embed-helper.js';
+const Info = require('./lib/info.js');
+const StickyHeader = require('./lib/sticky-header.js');
+const Utils = require('./lib/utils.js');
+const EmbedHelper = require('./lib/embed-helper.js');
 
 const { lazyLoad } = Utils;
 
-export { EmbedHelper, lazyLoad as lazy };
+module.exports = {
+  EmbedHelper,
+  lazy: lazyLoad
+};
 
 new Info();
 new StickyHeader('sticky-header', [

@@ -1,4 +1,4 @@
-export default class StickyHeader {
+class StickyHeader {
   constructor(elementId, modifiers) {
     this.headerId = elementId;
     this.modifiers = modifiers;
@@ -108,3 +108,5 @@ export default class StickyHeader {
     return this._modifiers;
   }
 }
+
+module.exports = StickyHeader;

@@ -1,4 +1,4 @@
-export default class TrueViewHeight {
+class TrueViewHeight {
   constructor(override) {
     const { _say } = TrueViewHeight;
     this._isMobileDevice
@@ -46,3 +46,5 @@ export default class TrueViewHeight {
     );
   }
 }
+
+module.exports = TrueViewHeight;
