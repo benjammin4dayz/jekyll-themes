@@ -7,7 +7,7 @@ module Flow::CLI
     subcommands = {
       "go" => {
         description: "Get the project scaffold",
-        handler: -> { puts Flow.scaffold(ARGV.first || Dir.pwd + "/jekyll-flow") },
+        handler: -> { puts Flow.scaffold(ARGV.first || Dir.pwd + "/jam-flow") },
       },
     }
 

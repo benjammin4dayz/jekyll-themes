@@ -16,7 +16,7 @@ social:
   - platform: GitHub
     handle: benjammin4dayz
 
-theme: flow
+theme: jam-flow
 colors:
   preset:
     'dark'
@@ -33,7 +33,11 @@ colors:
   text:
 
 collections:
-  - articles
+  articles:
+    output: false
+  redirect:
+    output: true
+    permalink: /:path
 
 plugins:
   - jekyll-last-modified-at

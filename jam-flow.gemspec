@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |spec|
-  spec.name = "flow"
-  spec.version = "0.4.0"
+  spec.name = "jam-flow"
+  spec.version = "0.4.1"
   spec.authors = ["benjammin4dayz"]
   spec.email = ["42326027+benjammin4dayz@users.noreply.github.com"]
 

@@ -24,7 +24,7 @@
 
     ```ruby
     source "https://rubygems.org"
-    gem "flow", tag: 'flow-v0.0.0', github: 'benjammin4dayz/jekyll-themes'
+    gem "jam-flow", tag: 'flow-v0.0.0', github: 'benjammin4dayz/jekyll-themes'
     ```
 
   - Then get the template
@@ -168,12 +168,12 @@ Clone the repo
 Get the distributables and navigate to the output directory
 
     $ .\dist
-    $ cd jekyll-flow
+    $ cd jam-flow
 
 Modify the Gemfile to point `flow` to the gem development path instead of the repo
 
 ```ruby
-gem "flow", path: '../'
+gem "jam-flow", path: '../'
 ```
 
 Call `bundler exec jekyll serve` using the `serve.rb` alias
