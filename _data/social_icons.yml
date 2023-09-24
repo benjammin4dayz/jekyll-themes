@@ -38,3 +38,7 @@
   icon: fab fa-whatsapp
 - platform: YouTube
   icon: fab fa-youtube
+
+# Not officially supported by FontAwesome - view the workaround in /_sass/_fa-addon.scss
+- platform: Ko-fi
+  icon: fas fa-ko-fi

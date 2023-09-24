@@ -2,7 +2,9 @@
   {% if social.handle -%}
     <a
       href='https://{{ social.platform | downcase }}.com/{{ social.handle }}'
+      title='{{ social.handle }} on {{ social.platform }}'
       target='_blank'
+      rel='noopener'
       class='home-landing__social-links home-landing__social-links--deco'
     >
       {% for item in site.data.social_icons -%}
